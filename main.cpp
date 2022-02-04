@@ -1,46 +1,45 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <queue>
 using namespace std;
 
-int is_visited[300000];
-vector<pair<int, int> > g[300000];
-int dij[300001];
+void swap(int *a, int *b)
+{
+	int tmp;
 
-int start;
-
-
-void dijkstra(int start) {
-    dij[start] = 0;
-    queue<pair<int, int> > q;
-    q.push(make_pair(start, 0));
-    
-    while(!q.empty()) {
-        int v = q.front().first;
-        int w = q.front().second;
-        q.pop();
-
-        if (dij[v] < )
-    }
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
+void selection_sort(int *arr, int size)
+{
+    int minIdx;
 
-int main() {
-    int vIdx, eIdx, V, V2, W;
+	for (int i = 0; i < size - 1; i++)
+	{
+		minIdx = i;
+		for (int j = i + 1; j < size; j++)
+		{
+			if (arr[j] < arr[minIdx])
+				minIdx = j;
+		}
+		if (i != minIdx)
+			swap(&arr[i], &arr[minIdx]);
+	}
+}
 
-    cin >> vIdx >> eIdx;
-    scanf("%d", &start);
+int main() {    
+    int A[101];
+    int B[101];
+    int C[101];
+    int n, n2;
+
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> A[i];
+    cin >> n2;
+    for (int i = 0; i < n2; i++)
+        cin >> B[i];
+    selection_sort()
     
-    for (int i=0; i< eIdx; i++) {
-        cin >> V >> V2 >> W;
-
-        g[V].push_back(make_pair(V2, W)); 
-        g[V2].push_back(make_pair(V, W));
-    }
-    
-    for (int i=0; i<= 300000; i++)
-        dij[i] = 10000000;
-    dijkstra(start);
-
 }
