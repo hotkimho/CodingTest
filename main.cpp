@@ -1,45 +1,31 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
+
+
 using namespace std;
 
-void swap(int *a, int *b)
+
+int	main()
 {
-	int tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-void selection_sort(int *arr, int size)
-{
-    int minIdx;
-
-	for (int i = 0; i < size - 1; i++)
-	{
-		minIdx = i;
-		for (int j = i + 1; j < size; j++)
-		{
-			if (arr[j] < arr[minIdx])
-				minIdx = j;
-		}
-		if (i != minIdx)
-			swap(&arr[i], &arr[minIdx]);
-	}
-}
-
-int main() {    
-    int A[101];
-    int B[101];
-    int C[101];
-    int n, n2;
-
+    std::ios_base::sync_with_stdio(false);
+    int n, max = 1, flag = 0;
+    vector<int> result;
     cin >> n;
-    for (int i = 0; i < n; i++)
-        cin >> A[i];
-    cin >> n2;
-    for (int i = 0; i < n2; i++)
-        cin >> B[i];
-    selection_sort()
-    
+    stack<int> stk;
+    while (n--) {
+        if (max > stk.top() && stk.size() > 0) {
+            flag = 1;
+            break;
+        }
+        if (max == stk.top() && stk.size() > 0)
+        {
+            result.push_back(0);
+            stk.pop();
+        }
+        stk.push(max++);
+        result.push_back(1);
+    }
+    cout << flag << endl;
+    for(int i = 0; i < result.size(); i++)
+            cout << result[i]<<" ";
+	return 0;
 }
