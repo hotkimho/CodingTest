@@ -1,31 +1,35 @@
 #include <bits/stdc++.h>
 
-
 using namespace std;
 
+int rg;
+int rgb;
 
+int board[101][101];
+int vis[101][101];
+int dx[4] = { 1,0,-1,0 };
+int dy[4] = { 0,1,0,-1 };
+int n;
+
+
+void bfs(int i, int j) {
+    queue<pair<int, int> > q;
+
+    vis[i][j] = 1;
+    q.push(make_pair(i, j));
+
+    while (!q.empty()) {
+
+    }
+
+}
 int	main()
 {
     std::ios_base::sync_with_stdio(false);
-    int n, max = 1, flag = 0;
-    vector<int> result;
+    cin.tie(0);
     cin >> n;
-    stack<int> stk;
-    while (n--) {
-        if (max > stk.top() && stk.size() > 0) {
-            flag = 1;
-            break;
-        }
-        if (max == stk.top() && stk.size() > 0)
-        {
-            result.push_back(0);
-            stk.pop();
-        }
-        stk.push(max++);
-        result.push_back(1);
-    }
-    cout << flag << endl;
-    for(int i = 0; i < result.size(); i++)
-            cout << result[i]<<" ";
-	return 0;
+
+
+
+    return 0;
 }
